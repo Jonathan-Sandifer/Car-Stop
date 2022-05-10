@@ -15,13 +15,10 @@ function App(props) {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/automobiles">
-<<<<<<< HEAD
             <Route index element={<AutomobileList automobiles={props.automobiles} />} />
             {/* <Route path="new" element={<AutomobileForm />}/> */}
-=======
-            <Route index element={<AutomobileList automobiles={props.automobiles} />}/>
-            <Route path="new" element={<AutomobileForm />}/>
->>>>>>> main
+            <Route index element={<AutomobileList automobiles={props.automobiles} />} />
+            <Route path="new" element={<AutomobileForm />} />
           </Route>
           <Route path="/manufacturers">
             <Route index element={<ManufacturerList manufacturers={props.manufacturers} />} />
