@@ -1,5 +1,5 @@
 function ManufacturerList(props) {
-  console.log('props:', props);
+  // console.log('props:', props);
   return (
     <table className="table table-striped">
       <thead>

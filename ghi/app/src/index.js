@@ -10,11 +10,11 @@ async function loadAutomobile() {
 
   if (automobileResponse.ok) {
     automobileData = await automobileResponse.json();
-    console.log('automobile data: ', automobileData)
+    // console.log('automobile data: ', automobileData)
   } else {
     console.error(automobileResponse);
   }
-  let foo = {automobile: {auto: []}}
+  let foo = { automobile: { auto: [] } }
   root.render(
     <React.StrictMode>
       <App automobiles={automobileResponse.ok ? automobileData : foo} />
@@ -29,12 +29,10 @@ async function loadManufacturer() {
 
   if (manufacturerResponse.ok) {
     manufacturerData = await manufacturerResponse.json();
-    console.log('manufacturer data: ', manufacturerData)
+    // console.log('manufacturer data: ', manufacturerData)
   } else {
     console.error(manufacturerResponse);
   }
-
-
 
   root.render(
     <React.StrictMode>
@@ -43,3 +41,22 @@ async function loadManufacturer() {
   );
 }
 loadManufacturer();
+
+async function loadVehicleModel() {
+  let vehicleModelData = [];
+  const vehicleModelResponse = await fetch("http://localhost:8100/api/models/");
+
+  if (vehicleModelResponse.ok) {
+    vehicleModelData = await vehicleModelResponse.json();
+    console.log('vehicle model data:', vehicleModelData)
+  } else {
+    console.error(vehicleModelResponse);
+  }
+
+  root.render(
+    <React.StrictMode>
+      <App vehicleModel={vehicleModelResponse.ok ? vehicleModelData : []} />
+    </React.StrictMode>
+  );
+}
+loadVehicleModel();
