@@ -6,9 +6,8 @@ class VehicleModelForm extends React.Component {
     this.state = {
       name: "",
       picture_url: "",
-      manufacturer: "",
+      manufacturer_id: "",
       manufacturers: [],
-      // vehicle_model: [] // could be problems here 
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,10 +30,10 @@ class VehicleModelForm extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     const data = { ...this.state };
-    delete data.manufacturer;
-    delete data.picture_url;
-    delete data.name;
-
+    delete data.manufacturers;
+    // delete data.picture_url;
+    // delete data.name;
+    console.log(data);
     const modelsUrl = "http://localhost:8100/api/models/";
     const fetchConfig = {
       method: "post",
@@ -50,7 +49,7 @@ class VehicleModelForm extends React.Component {
       this.setState({
         name: "",
         picture_url: "",
-        manufacturer: "",
+        manufacturer_id: "",
       });
     } else {
       console.log('bad response')
@@ -69,7 +68,7 @@ class VehicleModelForm extends React.Component {
 
   handleChangeManufacturer(event) {
     const value = event.target.value;
-    this.setState({ manufacturer: value });
+    this.setState({ manufacturer_id: value });
   }
 
   render() {
@@ -88,7 +87,7 @@ class VehicleModelForm extends React.Component {
                 <label htmlFor="picture_url">Picture URL</label>
               </div>
               <div className="mb-3">
-                <select onChange={this.handleChangeManufacturer} value={this.state.manufacturer} placeholder="manufacturer" id="manufacturer" className="form-select">
+                <select onChange={this.handleChangeManufacturer} value={this.state.manufacturer_id} placeholder="manufacturer" id="manufacturer" className="form-select">
                   <option value="">Choose a manufacturer</option>
                   {this.state.manufacturers.map(manufacturer => {
                     return (
