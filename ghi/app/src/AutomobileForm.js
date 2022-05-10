@@ -14,8 +14,8 @@ class AutomobileForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeYear = this.handleChangeYear.bind(this);
     this.handleChangeColor = this.handleChangeColor.bind(this);
-    this.handleChangeStyle = this.handleChangeStyle.bind(this);
-    this.handleChangePicture = this.handleChangePicture.bind(this);
+    this.handleChangeVin = this.handleChangeVin.bind(this);
+    this.handleChangeModel = this.handleChangeModel.bind(this);
     this.handleChangeLocation = this.handleChangeLocation.bind(this);
   }
 
