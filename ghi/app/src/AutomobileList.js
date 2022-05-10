@@ -1,23 +1,31 @@
 function AutomobileList(props) {
     console.log("888Props:", props);
     return (
-      <div className="container">
-        <h2 className="display-5 fw-bold">Automobiles</h2>
-        <div className="row">
+      <table className="table table-striped">
+      <thead>
+        <tr>
+          <th>Vin</th>
+          <th>Color</th>
+          <th>Year</th>
+          <th>Model</th>
+          <th>Manufacturer</th>
+        </tr>
+      </thead>
+      <tbody>
           {props.automobiles.autos.map(automobiles => {
             return (
-              <div key={automobiles.id} className="col">
-                <div className="card mb-3 shadow">
-                  <div className="card-body">
-                    <h5 className="card-title">{automobiles.vin}</h5>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    );
-  }
+              <tr key={automobiles.id}>
+                <td>{automobiles.vin}</td>
+                <td>{automobiles.color}</td>
+                <td>{automobiles.year}</td>
+                {/* <td>{automobiles.vehiclemodel.model}</td> */}
+                <td>{automobiles.manufacturer.name}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+}
   
   export default AutomobileList

@@ -8,7 +8,7 @@ class AutomobileForm extends React.Component {
       color: "",
       vin: "",
       model: "",
-      locations: []
+      model: []
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,17 +16,16 @@ class AutomobileForm extends React.Component {
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.handleChangeVin = this.handleChangeVin.bind(this);
     this.handleChangeModel = this.handleChangeModel.bind(this);
-    this.handleChangeLocation = this.handleChangeLocation.bind(this);
   }
 
   async componentDidMount() {
-    const url = 'http://localhost:8100/api/locations/';
+    const url = 'http://localhost:8100/api/automobiles/';
 
     const response = await fetch(url);
 
     if (response.ok) {
       const data = await response.json();
-      this.setState({ locations: data.locations });
+      this.setState({ model: data.model });
     }
   }
 

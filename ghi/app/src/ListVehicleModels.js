@@ -1,5 +1,5 @@
 function VehicleModelsList(props) {
-  console.log('props 7777:', props);
+  // console.log('props 7777:', props);
   return (
     <table className="table table-striped">
       <thead>
