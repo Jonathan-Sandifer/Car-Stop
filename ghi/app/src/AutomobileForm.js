@@ -5,15 +5,14 @@ class AutomobileForm extends React.Component {
     super(props);
     this.state = {
       year: "",
-      style: "",
       color: "",
-      picture: "",
-      location: "",
+      vin: "",
+      model: "",
       locations: []
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChangeFabric = this.handleChangeFabric.bind(this);
+    this.handleChangeYear = this.handleChangeYear.bind(this);
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.handleChangeStyle = this.handleChangeStyle.bind(this);
     this.handleChangePicture = this.handleChangePicture.bind(this);
