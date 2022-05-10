@@ -4,6 +4,7 @@ import Nav from './Nav';
 import AutomobileList from './AutomobileList';
 // import AutomobileForm from './AutomobileForm';
 import ManufacturerList from './ListManufacturer';
+import ManufacturerForm from './CreateManufacturer';
 
 function App(props) {
   return (
@@ -18,6 +19,7 @@ function App(props) {
           </Route>
           <Route path="/manufacturers">
             <Route index element={<ManufacturerList manufacturers={props.manufacturers} />} />
+            <Route path="new" element={<ManufacturerForm />} />
           </Route>
         </Routes>
       </div>
