@@ -4,9 +4,50 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-async function loadAutomobile() {
-  let automobileData = [];
+// async function loadAutomobile() {
+//   let automobileData = [];
+//   const automobileResponse = await fetch('http://localhost:8100/api/automobiles/');
+
+//   if (automobileResponse.ok) {
+//     automobileData = await automobileResponse.json();
+//     console.log('automobile data: ', automobileData)
+//   } else {
+//     console.error(automobileResponse);
+//   }
+//   let foo = {automobile: {auto: []}}
+//   root.render(
+//     <React.StrictMode>
+//       <App automobiles={automobileResponse.ok ? automobileData : foo} />
+//     </React.StrictMode>
+//   );
+// }
+// loadAutomobile();
+
+// async function loadManufacturer() {
+//   let manufacturerData = [];
+//   const manufacturerResponse = await fetch("http://localhost:8100/api/manufacturers/");
+
+//   if (manufacturerResponse.ok) {
+//     manufacturerData = await manufacturerResponse.json();
+//     console.log('manufacturer data: ', manufacturerData)
+//   } else {
+//     console.error(manufacturerResponse);
+//   }
+
+
+
+//   root.render(
+//     <React.StrictMode>
+//       <App manufacturers={manufacturerResponse.ok ? manufacturerData : []} />
+//     </React.StrictMode>
+//   );
+// }
+// loadManufacturer();
+
+async function loadInventory() {
+  let automobileData, manufacturerData;
   const automobileResponse = await fetch('http://localhost:8100/api/automobiles/');
+  const manufacturerResponse = await fetch("http://localhost:8100/api/manufacturers/");
 
   if (automobileResponse.ok) {
     automobileData = await automobileResponse.json();
@@ -14,6 +55,7 @@ async function loadAutomobile() {
   } else {
     console.error(automobileResponse);
   }
+<<<<<<< HEAD
   let foo = { automobile: { auto: [] } }
   root.render(
     <React.StrictMode>
@@ -27,19 +69,25 @@ async function loadManufacturer() {
   let manufacturerData = [];
   const manufacturerResponse = await fetch("http://localhost:8100/api/manufacturers/");
 
+=======
+>>>>>>> main
   if (manufacturerResponse.ok) {
     manufacturerData = await manufacturerResponse.json();
     // console.log('manufacturer data: ', manufacturerData)
   } else {
     console.error(manufacturerResponse);
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
   root.render(
     <React.StrictMode>
-      <App manufacturers={manufacturerResponse.ok ? manufacturerData : []} />
+      <App automobiles={automobileData} manufacturers={manufacturerData} />
     </React.StrictMode>
   );
 }
+<<<<<<< HEAD
 loadManufacturer();
 
 async function loadVehicleModel() {
@@ -60,3 +108,6 @@ async function loadVehicleModel() {
   );
 }
 loadVehicleModel();
+=======
+loadInventory();
+>>>>>>> main
