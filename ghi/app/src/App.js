@@ -12,7 +12,7 @@ function App(props) {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="automobiles">
+          <Route path="/automobiles">
             <Route index element={<AutomobileList automobiles={props.automobiles} />}/>
             {/* <Route path="new" element={<AutomobileForm />}/> */}
           </Route>

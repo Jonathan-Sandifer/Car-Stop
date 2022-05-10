@@ -5,7 +5,7 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 async function loadAutomobile() {
-  let automobileData
+  let automobileData = [];
   const automobileResponse = await fetch('http://localhost:8100/api/automobiles/');
 
   if (automobileResponse.ok) {
@@ -14,10 +14,10 @@ async function loadAutomobile() {
   } else {
     console.error(automobileResponse);
   }
-
+  let foo = {automobile: {auto: []}}
   root.render(
     <React.StrictMode>
-      <App automobiles={ automobileResponse.ok ? automobileData : [] } />
+      <App automobiles={automobileResponse.ok ? automobileData : foo} />
     </React.StrictMode>
   );
 }
