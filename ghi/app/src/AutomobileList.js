@@ -18,8 +18,8 @@ function AutomobileList(props) {
                 <td>{automobiles.vin}</td>
                 <td>{automobiles.color}</td>
                 <td>{automobiles.year}</td>
-                {/* <td>{automobiles.vehiclemodel.model}</td> */}
-                <td>{automobiles.manufacturer.name}</td>
+                <td>{automobiles.model.name}</td>
+                <td>{automobiles.model.manufacturer.name}</td>
             </tr>
           );
         })}

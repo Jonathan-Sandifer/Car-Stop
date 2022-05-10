@@ -8,7 +8,7 @@ async function loadInventory() {
   let automobileData, manufacturerData, vehicleModelData;
   const automobileResponse = await fetch('http://localhost:8100/api/automobiles/');
   const manufacturerResponse = await fetch("http://localhost:8100/api/manufacturers/");
-  const vehicleModelResponse = await fetch("	http://localhost:8100/api/models/");
+  const vehicleModelResponse = await fetch("http://localhost:8100/api/models/");
 
   if (automobileResponse.ok) {
     automobileData = await automobileResponse.json();
