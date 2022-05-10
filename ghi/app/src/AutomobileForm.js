@@ -20,12 +20,11 @@ class AutomobileForm extends React.Component {
 
   async componentDidMount() {
     const url = 'http://localhost:8100/api/automobiles/';
-
     const response = await fetch(url);
 
     if (response.ok) {
       const data = await response.json();
-      this.setState({ model: data.models });
+      this.setState({ models: data.models });
     }
   }
 
@@ -47,10 +46,10 @@ class AutomobileForm extends React.Component {
       const newAutomobile = await response.json();
       console.log(newAutomobile);
       this.setState({
-        year: '',
-        color: '',
-        vin: '',
-        model: '',
+        year: "",
+        color: "",
+        vin: "",
+        model: "",
       });
     }
   }
@@ -94,16 +93,16 @@ class AutomobileForm extends React.Component {
                 <input onChange={this.handleChangeColor} value={this.state.color} placeholder="Color" required type="text" name="color" id="color" className="form-control" />
                 <label htmlFor="color">Color</label>
               </div>
-              <div className="mb-3">
+              {/* <div className="mb-3">
                 <select onChange={this.handleChangeModel} value={this.state.model} required name="model" id="model" className="form-select">
                   <option value="">Choose a model</option>
-                  {this.state.model.map(model => {
+                  {this.state.models.map(model => {
                     return (
-                      <option key={model.href} value={model.id}>[model.name]</option>
+                      <option key={model.href} value={model.id}>{model.name}</option>
                     )
                   })}
                 </select>
-              </div>
+              </div> */}
               <button className="btn btn-primary">Add</button>
             </form>
           </div>
