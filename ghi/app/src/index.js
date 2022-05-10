@@ -24,7 +24,7 @@ async function loadInventory() {
   }
   if (vehicleModelResponse.ok) {
     vehicleModelData = await vehicleModelResponse.json();
-    console.log('vehicle model data:', vehicleModelData)
+    // console.log('vehicle model data:', vehicleModelData)
   } else {
     console.error(vehicleModelResponse);
   }
