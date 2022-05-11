@@ -28,4 +28,4 @@ function AutomobileList(props) {
   );
 }
   
-  export default AutomobileList
+export default AutomobileList
