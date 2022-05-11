@@ -32,10 +32,10 @@ function App(props) {
             <Route path="new" element={<VehicleModelForm />} />
           </Route>
           <Route path="/salesperson">
-            <Route path="new" element={<SalesPersonForm />} />
+            <Route index element={<SalesPersonForm />} />
           </Route>
           <Route path="/customer">
-            <Route path="new" element={<CustomerForm />} />
+            <Route index element={<CustomerForm />} />
           </Route>
         </Routes>
       </div>

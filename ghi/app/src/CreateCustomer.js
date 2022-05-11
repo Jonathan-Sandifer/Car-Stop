@@ -36,7 +36,7 @@ class CustomerForm extends React.Component {
       console.log(newCustomer);
       this.setState({
         name: "",
-        employee_id_number: "",
+        address: "",
         phone_number: "",
       });
     }
