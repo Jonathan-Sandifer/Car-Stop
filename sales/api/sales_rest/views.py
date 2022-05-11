@@ -17,7 +17,7 @@ def api_sales_person(request):
         sales_people = SalesPerson.objects.all()
         return JsonResponse(
             {"sales people": sales_people},
-            encoder=SalesPersonEncoder,  # make a sales person data encoder in encoders py file
+            encoder=SalesPersonEncoder,
         )
     else:
         try:
@@ -42,7 +42,7 @@ def api_customer(request):
         customers = Customer.objects.all()
         return JsonResponse(
             {"customers": customers},
-            encoder=CustomerEncoder,  # create encoder for customer data
+            encoder=CustomerEncoder,
         )
     else:
         try:
