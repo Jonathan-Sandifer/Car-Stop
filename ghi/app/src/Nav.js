@@ -32,10 +32,10 @@ function Nav() {
               <NavLink className="nav-link" to="/automobiles/new">Add an Automobile</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/salesperson/">Add a Salesperson</NavLink>
+              <NavLink className="nav-link" to="/salesperson">Add a Salesperson</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/customer/">Add a Customer</NavLink>
+              <NavLink className="nav-link" to="/customer">Add a Customer</NavLink>
             </li>
           </ul>
         </div>
