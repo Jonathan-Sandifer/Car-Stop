@@ -6,6 +6,7 @@ from django.db import models
 class VinVO(models.Model):
     import_href = models.CharField(max_length=200, unique=True)
     vin = models.CharField(max_length=17, unique=True)
+    availability = models.BooleanField(default=True)
 
 
 class SalesPerson(models.Model):
@@ -21,7 +22,6 @@ class Customer(models.Model):
 
 class SalesRecord(models.Model):
     price = models.PositiveBigIntegerField()
-    availability = models.BooleanField()
     customer = models.ForeignKey(
         Customer,
         related_name="customer",
