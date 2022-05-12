@@ -1,11 +1,18 @@
 from common.json import ModelEncoder
-from .models import Technician, Service
+from .models import Technician, Service, VinVO, ServiceHistory
+
+class VinVoEncoder(ModelEncoder):
+    model = VinVO
+    properties = [
+        "import_href",
+        "vin",
+    ]
 
 class TechnicianEncoder(ModelEncoder):
     model = Technician
     properties = [
         "id",
-        "technician",
+        "name",
         "employee_number",
     ]
 
@@ -19,4 +26,17 @@ class ServiceEncoder(ModelEncoder):
         "time",
         "technician",
         "reason",
+    ]
+    encoders = {
+        "technician": TechnicianEncoder(),
+        "vin": VinVoEncoder():
+
+    }
+
+class ServiceHistoryEncoder(ModelEncoder):
+    models = ServiceHistory
+    properties  = [
+        "id",
+        "service",
+
     ]
