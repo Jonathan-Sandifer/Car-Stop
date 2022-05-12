@@ -19,7 +19,7 @@ urlpatterns = [
         name="api_customer",
     ),
     path(
-        "salesrecord/",
+        "sales_record/",
         api_sales_record,
         name="api_sales_record",
     ),
