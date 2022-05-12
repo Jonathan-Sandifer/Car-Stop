@@ -83,13 +83,8 @@ WSGI_APPLICATION = 'sales_project.wsgi.application'
 # }
 
 # solution proposed by Chad in help me if error when creating a table in sales
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
+DATABASES = {}
+DATABASES["default"] = dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

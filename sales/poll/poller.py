@@ -15,20 +15,20 @@ from sales_rest.models import VinVO
 
 def get_vins():
     response = requests.get(
-        "http://inventory-api:8000/api/automobiles/")  # find the right url
+        "http://inventory-api:8000/api/automobiles/")  
     content = json.loads(response.content)
-    print("content", content)
-    # v = VinVO.objects.get.all()
-    # print("hello", v)
-    for vin in content["vins"]:
-    VinVO.objects.update_or_create(
-        import_href=vin["href"],
-        defaults={
-            "vin": vin["vin"],
-            "availability": vin["availability"],
-        },
-    )
-
+    # print("content:", content["autos"])
+    # print("content2:", content["autos"][0])
+    # print("content3:", content["autos"][1])
+    for vin in content["autos"]:
+        VinVO.objects.update_or_create(
+            import_href=vin["href"],
+            vin=vin["vin"]
+            # defaults={
+            #     "vin": vin["vin"],
+            # },
+        )
+   
 
 def poll():
     while True:
@@ -36,7 +36,7 @@ def poll():
         try:
             # Write your polling logic, here
             get_vins()
-            pass
+
         except Exception as e:
             print(e, file=sys.stderr)
         time.sleep(10)
