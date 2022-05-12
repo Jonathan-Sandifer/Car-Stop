@@ -18,11 +18,12 @@ def api_sales_record(request):
     if request.method == "GET":
         records = SalesRecord.objects.all()
         return JsonResponse(
-            {"sales records": records},
+            {"sales_records": records},
             encoder=SalesRecordEncoder,
         )
     else:
         content = json.loads(request.body)
+        print(content)
         try:  
             vin = VinVO.objects.get(import_href=content["vin"]) #ToDo problem here 
             content["vin"] = vin 

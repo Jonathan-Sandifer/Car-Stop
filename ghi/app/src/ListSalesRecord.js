@@ -1,9 +1,8 @@
 function SalesRecordList(props) {
-  console.log('props 2222:', props);
+  console.log('props 2222:', props.salesRecord);
   return (
     <>
       <h1>Sales Records</h1>
-
       <table className="table table-striped">
         <thead>
           <tr>
@@ -15,17 +14,18 @@ function SalesRecordList(props) {
           </tr>
         </thead>
         <tbody>
-          {/* {props.SalesRecord.SalesRecord.map(SalesRecord => {
+          {props.salesRecord.sales_records.map(salesRecord => {
             return (
-              <tr key={SalesRecord.id}>
-                   <td>{SalesRecord.sales_person.name}</td>
-                   <td>{SalesRecord.sales_person.employee_id_number}</td>
-                   <td>{SalesRecord.customer.name}</td>
-                   <td>{SalesRecord.vin_number.vin}</td>
-                   <td>{SalesRecord.price}</td>
+              // key={SalesRecord.href} may need to set a key value for the row
+              <tr>  
+                   <td>{salesRecord.sales_person.name}</td>
+                   <td>{salesRecord.sales_person.employee_id_number}</td>
+                   <td>{salesRecord.customer.name}</td>
+                   <td>{salesRecord.Vin_number.vin}</td>
+                   <td>{salesRecord.price}</td>
               </tr>
             );
-          })} */}
+          })}
         </tbody>
       </table>
     </>
