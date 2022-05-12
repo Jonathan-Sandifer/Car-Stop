@@ -4,6 +4,7 @@ from .models import Technician, Service
 class TechnicianEncoder(ModelEncoder):
     model = Technician
     properties = [
+        "id",
         "technician",
         "employee_number",
     ]
@@ -11,6 +12,7 @@ class TechnicianEncoder(ModelEncoder):
 class ServiceEncoder(ModelEncoder):
     model = Service
     properties = [
+        "id",
         "vin",
         "customer_name",
         "date",
