@@ -23,15 +23,31 @@ def api_sales_record(request):
         )
     else:
         content = json.loads(request.body)
-        print(content)
+        # print("over here:", content)
         try:  
-            vin = VinVO.objects.get(import_href=content["vin"]) #ToDo problem here 
-            content["vin"] = vin 
+            vin = VinVO.objects.get(import_href=content["Vin_number"]) 
+            content["Vin_number"] = vin 
         except VinVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid vin href"},
                 status=400
             )
+        try:  
+            customer = Customer.objects.get(id=content["customer"])  
+            content["customer"] = customer 
+        except Customer.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid customer"},
+                status=400
+            )  
+        try:  
+            sales_person = SalesPerson.objects.get(id=content["sales_person"])  
+            content["sales_person"] = sales_person 
+        except SalesPerson.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid sales person"},
+                status=400
+            )    
 
         record = SalesRecord.objects.create(**content)
         return JsonResponse(
