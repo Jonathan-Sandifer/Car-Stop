@@ -10,6 +10,7 @@ import VehicleModelForm from './CreateVehicleModel';
 import SalesPersonForm from './CreateSalesPerson';
 import CustomerForm from './CreateCustomer';
 import SalesRecordList from './ListSalesRecord';
+import SalesRecordForm from './CreateSalesRecord';
 
 function App(props) {
   return (
@@ -40,6 +41,7 @@ function App(props) {
           </Route>
           <Route path="/sales_record">
             <Route index element={<SalesRecordList salesRecord={props.salesRecord} />} />
+            <Route path="new" element={<SalesRecordForm />} />
           </Route>
         </Routes>
       </div>
