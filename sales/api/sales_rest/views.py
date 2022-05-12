@@ -6,9 +6,38 @@ import json
 from .encoders import (
     SalesPersonEncoder,
     CustomerEncoder,
+    SalesRecordEncoder,
+
 )
-from .models import SalesPerson, Customer
+from .models import SalesPerson, Customer, SalesRecord, VinVO
 # Create your views here.
+
+
+@require_http_methods(["GET", "POST"])
+def api_sales_record(request):
+    if request.method == "GET":
+        records = SalesRecord.objects.all()
+        return JsonResponse(
+            {"sales records": records},
+            encoder=SalesRecordEncoder,
+        )
+    else:
+        content = json.loads(request.body)
+        try:  
+            vin = VinVO.objects.get(import_href=content["vin"]) #ToDo problem here 
+            content["vin"] = vin 
+        except VinVO.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid vin href"},
+                status=400
+            )
+
+        record = SalesRecord.objects.create(**content)
+        return JsonResponse(
+            record,
+            encoder=SalesRecordEncoder,
+            safe=False
+        )
 
 
 @require_http_methods(["GET", "POST"])
