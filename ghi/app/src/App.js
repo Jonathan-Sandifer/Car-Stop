@@ -13,6 +13,7 @@ import TechnicianList from './TechnicianList';
 import TechnicianForm from './TechnicianForm';
 import ServiceList from './ServiceList';
 import ServiceForm from './ServiceForm';
+import SalesRecordList from './ListSalesRecord';
 
 function App(props) {
   return (
@@ -46,6 +47,9 @@ function App(props) {
           </Route>
           <Route path="/customer">
             <Route index element={<CustomerForm />} />
+          </Route>
+          <Route path="/sales_record">
+            <Route index element={<SalesRecordList salesRecord={props.salesRecord} />} />
           </Route>
         </Routes>
       </div>

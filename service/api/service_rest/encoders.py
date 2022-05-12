@@ -29,7 +29,7 @@ class ServiceEncoder(ModelEncoder):
     ]
     encoders = {
         "technician": TechnicianEncoder(),
-        "vin": VinVoEncoder():
+        "vin": VinVoEncoder(),
 
     }
 
