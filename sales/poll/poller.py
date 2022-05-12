@@ -1,4 +1,3 @@
-from sales_rest.models import VinVO
 import django
 import os
 import sys
@@ -12,20 +11,23 @@ django.setup()
 
 # Import models from sales_rest, here.
 # from sales_rest.models import Something
-
+from sales_rest.models import VinVO
 
 def get_vins():
     response = requests.get(
-        "http://inventory-api:8100/api/automobiles/")  # find the right url
+        "http://inventory-api:8000/api/automobiles/")  # find the right url
     content = json.loads(response.content)
+    print("content", content)
+    # v = VinVO.objects.get.all()
+    # print("hello", v)
     for vin in content["vins"]:
-        VinVO.objects.update_or_create(
-            import_href=vin["href"],
-            defaults={
-                "vin": vin["vin"],
-                "availability": vin["availability"],
-            },
-        )
+    VinVO.objects.update_or_create(
+        import_href=vin["href"],
+        defaults={
+            "vin": vin["vin"],
+            "availability": vin["availability"],
+        },
+    )
 
 
 def poll():
@@ -37,7 +39,7 @@ def poll():
             pass
         except Exception as e:
             print(e, file=sys.stderr)
-        time.sleep(60)
+        time.sleep(10)
 
 
 if __name__ == "__main__":
