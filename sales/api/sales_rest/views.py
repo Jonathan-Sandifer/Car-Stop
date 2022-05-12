@@ -24,7 +24,7 @@ def api_sales_record(request):
     else:
         content = json.loads(request.body)
         try:  
-            vin = VinVO.objects.get(import_href=content["vin"])
+            vin = VinVO.objects.get(import_href=content["vin"]) #ToDo problem here 
             content["vin"] = vin 
         except VinVO.DoesNotExist:
             return JsonResponse(

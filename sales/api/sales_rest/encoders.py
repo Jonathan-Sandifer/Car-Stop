@@ -33,11 +33,15 @@ class CustomerEncoder(ModelEncoder):
 
 class SalesRecordEncoder(ModelEncoder):
     model = SalesRecord
-    properties = [
+    properties = [        
+        "sales_person",
+        "Vin_number",
+        "customer",
         "price",
+        "id"
     ]
     encoders = {
-        "customer": CustomerEncoder(),
         "sales_person": SalesPersonEncoder(),
-        "vin_number": VinVoEncoder()
+        "customer": CustomerEncoder(),
+        "Vin_number": VinVoEncoder()
     }
