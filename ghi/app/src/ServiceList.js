@@ -17,11 +17,11 @@ function ServiceList(props) {
             {props.services.services.map(services => {
               return ( 
                 <tr key={services.id}>  
-                     <td>{services.vin}</td>
-                     <td>{services.customer}</td>
-                     <td>{services.date_time}</td>
-                     <td>{services.technician}</td>
-                     <td>{services.reason}</td>
+                     <td>{services.services.services.vin}</td>
+                     <td>{services.services.customer}</td>
+                     <td>{services.services.date_time}</td>
+                     <td>{services.services.technician}</td>
+                     <td>{services.services.reason}</td>
                 </tr>
               );
             })}
