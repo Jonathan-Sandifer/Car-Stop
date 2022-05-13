@@ -1,6 +1,6 @@
 async function cancelClick(service){
   console.log(service)
-  const url = `http://localhost:8080/api/appointments/${service.id}/cancelled/`
+  const url = `http://localhost:8080/api/services/${service.id}/cancelled/`
   const fetchConfig = {
       method: "put",
       headers: {
@@ -15,7 +15,7 @@ async function cancelClick(service){
 
 async function finishedClick(service){
   console.log(service)
-  const url = `http://localhost:8080/api/appointments/${service.id}/finished/`
+  const url = `http://localhost:8080/api/services/${service.id}/finished/`
   const fetchConfig = {
       method: "put",
       headers: {

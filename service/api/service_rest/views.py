@@ -31,7 +31,7 @@ def api_list_technicians(request):
             )
         except:
             return JsonResponse(
-                {"message": "Try a diffeerent Tech"}
+                {"message": "Try a different Tech"}
             )
 
 

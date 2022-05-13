@@ -15,7 +15,6 @@ class TechnicianForm extends React.Component {
 
 
     async handleSubmit(event) {
-      console.log("BEE")
         event.preventDefault();
         const data = {...this.state};
         delete data.employeeNumber
@@ -64,7 +63,7 @@ class TechnicianForm extends React.Component {
                       <input onChange={this.handleChangeEmployeeNumber} value={this.state.employeeNumber} placeholder="employeeNumber" required type="text" id="employeeNumber" className="form-control" />
                       <label htmlFor="employeeNumber">Employee number</label>
                     </div>
-                    <button className="btn btn-primary">Create</button>
+                    <button type='submit' className="btn btn-primary">Create</button>
                   </form>
                 </div>
               </div>

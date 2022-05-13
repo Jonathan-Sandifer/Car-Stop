@@ -1,5 +1,5 @@
 import React from 'react';
-console.log("frog")
+
 class ManufacturerForm extends React.Component {
   constructor(props) {
     super(props);
@@ -48,12 +48,12 @@ class ManufacturerForm extends React.Component {
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
             <h1>Create a manufacturer</h1>
-            <form onSubmit={this.handleSubmit} id="create-manufacturer-form">
+            <form onSubmit={this.handleSubmit.bind(this)} id="create-manufacturer-form">
               <div className="form-floating mb-3">
                 <input onChange={this.handleChangeName} value={this.state.name} placeholder="Name" required type="text" name="name" id="manufacturer" className="form-control" />
                 <label htmlFor="manufacturer">Name</label>
               </div>
-              <button className="btn btn-primary">Create</button>
+              <button type='submit' className="btn btn-primary">Create</button>
             </form>
             
           </div>
@@ -62,5 +62,4 @@ class ManufacturerForm extends React.Component {
     );
   }
 }
-console.log("BEE")
 export default ManufacturerForm;

@@ -114,17 +114,17 @@ class AutomobileForm extends React.Component {
                   })}
                 </select>
                 </div>
-              {/* <div className="mb-3">
+                {/* <div className="mb-3">
                 <select onChange={this.handleChangeModel} value={this.state.model} placeholder="Model" id="model" className="form-select">
                   <option value="">Choose a model</option>
-                  {this.state.models.map(models => {
+                  {this.state.models.map(model => {
                     return (
-                      <option key={models.href} value={models.id}>{models.name}</option>
+                      <option key={model.href} value={model.id}>{model.name}</option>
                     )
                   })}
                 </select>
-              </div> */}
-              <button className="btn btn-primary">Add</button>
+                </div> */}
+              <button type='submit' className="btn btn-primary">Add</button>
             </form>
           </div>
         </div>
