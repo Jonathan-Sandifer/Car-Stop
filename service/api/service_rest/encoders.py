@@ -1,5 +1,5 @@
 from common.json import ModelEncoder
-from .models import Technician, Service, VinVO, ServiceHistory
+from .models import Technician, Service, VinVO
 
 class VinVoEncoder(ModelEncoder):
     model = VinVO
@@ -33,10 +33,10 @@ class ServiceEncoder(ModelEncoder):
 
     }
 
-class ServiceHistoryEncoder(ModelEncoder):
-    models = ServiceHistory
-    properties  = [
-        "id",
-        "service",
+# class ServiceHistoryEncoder(ModelEncoder):
+#     models = ServiceHistory
+#     properties  = [
+#         "id",
+#         "service",
 
-    ]
+#     ]

@@ -13,30 +13,30 @@ class Service(models.Model):
     date = models.DateField()
     time = models.TimeField()
     reason = models.CharField(max_length=100)
-    technician = models.ForeignKey(
-        Technician,
-        related_name="technician",
-        on_delete=models.PROTECT,
-    )    
-    vin = models.ForeignKey(
-        VinVO,
-        related_name="vin",
-        on_delete=models.PROTECT,
-    )
+    # technician = models.ForeignKey(
+    #     Technician,
+    #     related_name="technician",
+    #     on_delete=models.PROTECT,
+    # )    
+    # vin = models.ForeignKey(
+    #     VinVO,
+    #     related_name="vin",
+    #     on_delete=models.PROTECT,
+    # )
 
-class ServiceHistory(models.Model):
-    vin = models.ForeignKey(
-    VinVO,
-    related_name="vin",
-    on_delete=models.PROTECT,
-    )
-    technician = models.ForeignKey(
-        Technician,
-        related_name="technician",
-        on_delete=models.PROTECT,
-    )
-    service = models.ForeignKey(
-        Service,
-        related_name="service",
-        on_delete=models.PROTECT,
-    )
+# class ServiceHistory(models.Model):
+#     vin = models.ForeignKey(
+#     VinVO,
+#     related_name="vin",
+#     on_delete=models.PROTECT,
+#     )
+#     technician = models.ForeignKey(
+#         Technician,
+#         related_name="technician",
+#         on_delete=models.PROTECT,
+#     )
+#     service = models.ForeignKey(
+#         Service,
+#         related_name="service",
+#         on_delete=models.PROTECT,
+#     )
