@@ -41,7 +41,7 @@ class SalesRecordForm extends React.Component {
     }
     if (autoResponse.ok) {
       const autoData = await autoResponse.json();
-      // console.log('goodbye:', autoData);
+      console.log('goodbye:', autoData);
       this.setState({ autos: autoData.autos });
     }
   }
@@ -49,14 +49,20 @@ class SalesRecordForm extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     const data = { ...this.state };
-    delete data.customers;
-    delete data.sales_people;
-    delete data.autos;
+    // delete data.customers;
+    // delete data.sales_people;
+    // delete data.autos;
     console.log(data);
+    const newSalesRecord = {
+      price: data.price,
+      customer: data.customer,
+      sales_person: data.sales_person,
+      Vin_number: data.auto
+    }
     const salesRecordUrl = "http://localhost:8090/api/sales_record/";
     const fetchConfig = {
       method: "post",
-      body: JSON.stringify(data),
+      body: JSON.stringify(newSalesRecord),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -109,7 +115,7 @@ class SalesRecordForm extends React.Component {
                   <option value="">Choose an automobile</option>
                   {this.state.autos.map(auto => {
                     return (
-                      <option key={auto.id} value={auto.id}>{auto.model.name}</option>
+                      <option key={auto.id} value={auto.href}>{auto.model.name}</option>
                     )
                   })}
                 </select>
