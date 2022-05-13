@@ -1,42 +1,33 @@
 from django.db import models
 
-# class Vin(models.Model):
-#     import_href = models.CharField(max_length=200, unique=True)
-#     vin = models.CharField(max_length=17, unique=True)
+class AutomobileVO(models.Model):
+    vin = models.CharField(max_length=17, unique=True)
+
+    def __str__(self):
+        return f"{self.name}"
+
 
 class Technician(models.Model):
-    name = models.CharField(max_length=200, unique=True)
+    name = models.CharField(max_length=200)
     employee_number = models.CharField(max_length=50, unique=True)
 
-# class Service(models.Model):
-#     customer_name = models.CharField(max_length=100)
-#     date = models.DateField()
-#     time = models.TimeField()
-#     reason = models.CharField(max_length=100)
-    # technician = models.ForeignKey(
-    #     Technician,
-    #     related_name="technician",
-    #     on_delete=models.PROTECT,
-    # )    
-    # vin = models.ForeignKey(
-    #     Vin,
-    #     related_name="vin",
-    #     on_delete=models.PROTECT,
-    # )
+    def __str__(self):
+        return f"{self.name}"
 
-# class ServiceHistory(models.Model):
-#     vin = models.ForeignKey(
-#     VinVO,
-#     related_name="vin",
-#     on_delete=models.PROTECT,
-#     )
-#     technician = models.ForeignKey(
-#         Technician,
-#         related_name="technician",
-#         on_delete=models.PROTECT,
-#     )
-#     service = models.ForeignKey(
-#         Service,
-#         related_name="service",
-#         on_delete=models.PROTECT,
-#     )
+class Service(models.Model):
+    vin = models.CharField(max_length=50, null=True)
+    customer = models.CharField(max_length=50, null=True)
+    date_time = models.DateTimeField(null=True)
+    technician = models.ForeignKey(
+        Technician,
+        related_name="technician",
+        on_delete=models.PROTECT,
+        null=True,
+    )
+    reason = models.CharField(max_length=100)
+    is_vip = models.BooleanField(default=False)
+    is_finished = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.reason} for {self.customer}"
+

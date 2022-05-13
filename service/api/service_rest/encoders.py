@@ -1,42 +1,48 @@
 from common.json import ModelEncoder
-from .models import Technician
+from .models import Technician, AutomobileVO, Service
 
-# class VinEncoder(ModelEncoder):
-#     model = Vin
-#     properties = [
-#         "import_href",
-#         "vin",
-#     ]
+class AutomobileVODetailEncoder(ModelEncoder):
+    model = AutomobileVO
+    properties = [
+        "vin",
+    ]
+
 
 class TechnicianEncoder(ModelEncoder):
     model = Technician
     properties = [
-        "id",
         "name",
         "employee_number",
+        "id"
     ]
 
-# class ServiceEncoder(ModelEncoder):
-#     model = Service
-#     properties = [
-#         "id",
-#         "vin",
-#         "customer_name",
-#         "date",
-#         "time",
-#         "technician",
-#         "reason",
-#     ]
-#     encoders = {
-#         "technician": TechnicianEncoder(),
-#         "vin": VinEncoder(),
+class ServiceListEncoder(ModelEncoder): 
+    model = Service
+    properties = [
+        "id",
+        "vin",
+        "customer",
+        "date_time",
+        "technician",
+        "reason",
+        "is_vip",
+        "is_finished"
+    ]
+    encoders = {
+        "technician": TechnicianEncoder(),
+    }
 
-#     }
 
-# class ServiceHistoryEncoder(ModelEncoder):
-#     models = ServiceHistory
-#     properties  = [
-#         "id",
-#         "service",
-
-#     ]
+class ServiceDetailEncoder(ModelEncoder):
+    model = Service
+    properties = [
+        "vin",
+        "customer",
+        "date_time",
+        "technician",
+        "reason",
+        "is_vip",
+    ]
+    encoders = {
+        "technician": TechnicianEncoder(),
+    }

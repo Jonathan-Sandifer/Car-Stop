@@ -11,8 +11,8 @@ import SalesPersonForm from './CreateSalesPerson';
 import CustomerForm from './CreateCustomer';
 import TechnicianList from './TechnicianList';
 import TechnicianForm from './TechnicianForm';
-import ServiceList from './ServiceList';
-import ServiceForm from './ServiceForm';
+// import ServiceList from './ServiceList';
+// import ServiceForm from './ServiceForm';
 import SalesRecordList from './ListSalesRecord';
 import SalesRecordForm from './CreateSalesRecord';
 
@@ -35,14 +35,14 @@ function App(props) {
             <Route index element={<VehicleModelsList vehicleModel={props.vehicleModel} />} />
             <Route path="new" element={<VehicleModelForm />} />
           </Route>
-          <Route path="/technicians">
-            <Route index element={<TechnicianList technicians={props.technicians} />} />
+          <Route path="technicians">
+            <Route path="" element={<TechnicianList />} />
             <Route path="new" element={<TechnicianForm />} />
           </Route>
-          <Route path="/services">
+          {/* <Route path="/services">
             <Route index element={<ServiceList services={props.services} />} />
             <Route path="new" element={<ServiceForm />} />
-          </Route>
+          </Route> */}
           <Route path="/salesperson">
             <Route index element={<SalesPersonForm />} />
           </Route>
