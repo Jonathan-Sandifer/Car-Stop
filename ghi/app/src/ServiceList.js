@@ -20,7 +20,7 @@ function ServiceList(props) {
                      <td>{services.vin}</td>
                      <td>{services.customer}</td>
                      <td>{services.date_time}</td>
-                     <td>{services.technicians.technician}</td>
+                     <td>{services.technician}</td>
                      <td>{services.reason}</td>
                 </tr>
               );

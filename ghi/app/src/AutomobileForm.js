@@ -94,7 +94,7 @@ class AutomobileForm extends React.Component {
                 <label htmlFor="color">Color</label>
               </div>
               {/* <div className="mb-3">
-                <select onChange={this.handleChangeModel} value={this.state.model} required name="model" id="model" className="form-select">
+                <select onChange={this.handleChangeModel} value={this.state.model} placeholder="model" id="model" className="form-select">
                   <option value="">Choose a model</option>
                   {this.state.models.map(model => {
                     return (

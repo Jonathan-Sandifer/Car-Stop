@@ -4,30 +4,22 @@ class TechnicianForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: '',
-            employeeNumber: '',
+            name: "",
+            employeeNumber: "",
         };
-        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-
-    handleChange(event) {
-        const newState = {}
-        newState[event.target.id] = event.target.value;
-        this.setState(newState)
+        this.handleChangeName = this.handleChangeName.bind(this);
+        this.handleChangeEmployeeNumber = this.handleChangeEmployeeNumber.bind(this);
     }
 
 
     async handleSubmit(event) {
         event.preventDefault();
         const data = {...this.state};
-        data.employee_number = data.employeeNumber
         delete data.employeeNumber
         delete data.technicians
-        console.log(data)
 
-        const technicianURL = "http://localhost:8080/api/technicians/";
+        const technicianURL = "http://localhost:8080/api/technician/";
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
@@ -35,18 +27,24 @@ class TechnicianForm extends React.Component {
                 'Content-Type': 'application/json'
             },
         };
-
         const response = await fetch(technicianURL, fetchConfig);
         if (response.ok) {
-            const newService = await response.json();
-            console.log(newService)
-
-            const cleared = {
-                name: '',
-                employeeNumber: '',
-            };
-            this.setState(cleared);
+            const newTechnician = await response.json();
+            console.log(newTechnician)
+            this.setState({
+              name: "",
+              employeeNumber: "",
+            });
         }
+    }
+
+    handleChangeName(event) {
+      const value = event.target.value;
+      this.setState({ name: value });
+    }
+    handleChangeEmployeeNumber(event) {
+      const value = event.target.value;
+      this.setState({ employeeNumber: value });
     }
 
     render() {
@@ -57,11 +55,11 @@ class TechnicianForm extends React.Component {
                   <h1>Create a New Technician</h1>
                   <form onSubmit={this.handleSubmit} id="create-technician-form">
                     <div className="form-floating mb-3">
-                      <input onChange={this.handleChange} value={this.state.name} placeholder="Name" required type="text" id="name" className="form-control" />
+                      <input onChange={this.handleChangeName} value={this.state.name} placeholder="Name" required type="text" id="name" className="form-control" />
                       <label htmlFor="name">Name</label>
                     </div>
                     <div className="form-floating mb-3">
-                      <input onChange={this.handleChange} value={this.state.employeeNumber} placeholder="Employee number" required type="text" id="employeeNumber" className="form-control" />
+                      <input onChange={this.handleChangeEmployeeNumber} value={this.state.employeeNumber} placeholder="Employee Number" required type="text" id="employeeNumber" className="form-control" />
                       <label htmlFor="employeeNumber">Employee number</label>
                     </div>
                     <button className="btn btn-primary">Create</button>
