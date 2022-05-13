@@ -3,7 +3,6 @@ from django.views.decorators.http import require_http_methods
 import json
 from .encoders import (
     TechnicianEncoder, 
-    AutomobileVODetailEncoder, 
     ServiceDetailEncoder,
     ServiceListEncoder,
 
@@ -22,14 +21,18 @@ def api_list_technicians(request):
     
     else:
         content = json.loads(request.body)
-
-        technician = Technician.objects.create(**content)
-
-        return JsonResponse(
-            technician, 
-            encoder=TechnicianEncoder,
-            safe=False
-        )
+        try:
+            technician = Technician.objects.create(**content)
+            print(content)
+            return JsonResponse(
+                technician, 
+                encoder=TechnicianEncoder,
+                safe=False
+            )
+        except:
+            return JsonResponse(
+                {"message": "Try a diffeerent Tech"}
+            )
 
 
 

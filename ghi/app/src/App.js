@@ -35,8 +35,8 @@ function App(props) {
             <Route index element={<VehicleModelsList vehicleModel={props.vehicleModel} />} />
             <Route path="new" element={<VehicleModelForm />} />
           </Route>
-          <Route path="technicians">
-            <Route path="" element={<TechnicianList />} />
+          <Route path="/technician">
+            <Route index element={<TechnicianList technicians={props.technicians} />} />
             <Route path="new" element={<TechnicianForm />} />
           </Route>
           {/* <Route path="/services">

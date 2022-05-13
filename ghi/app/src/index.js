@@ -57,7 +57,7 @@ async function loadInventory() {
       vehicleModel={vehicleModelData} 
       salesRecord={salesRecordData} 
       // service={serviceData} 
-      technician={technicianData}/>
+      technicians={technicianData}/>
     </React.StrictMode>
   );
 }

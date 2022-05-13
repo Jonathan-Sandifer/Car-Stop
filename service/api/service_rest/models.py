@@ -11,8 +11,6 @@ class Technician(models.Model):
     name = models.CharField(max_length=200)
     employee_number = models.CharField(max_length=50, unique=True)
 
-    def __str__(self):
-        return f"{self.name}"
 
 class Service(models.Model):
     vin = models.CharField(max_length=50, null=True)
@@ -27,7 +25,4 @@ class Service(models.Model):
     reason = models.CharField(max_length=100)
     is_vip = models.BooleanField(default=False)
     is_finished = models.BooleanField(default=False)
-
-    def __str__(self):
-        return f"{self.reason} for {self.customer}"
 
