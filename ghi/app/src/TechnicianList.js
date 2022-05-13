@@ -1,5 +1,5 @@
 function TechnicianList(props) {
-  // console.log('props 2222:', props);
+  console.log('props 2222:', props);
   return (
     <>
       <h1>Technicians</h1>

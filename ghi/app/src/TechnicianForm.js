@@ -6,6 +6,7 @@ class TechnicianForm extends React.Component {
         this.state = {
             name: "",
             employeeNumber: "",
+            technician: [],
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChangeName = this.handleChangeName.bind(this);
@@ -14,10 +15,11 @@ class TechnicianForm extends React.Component {
 
 
     async handleSubmit(event) {
+      console.log("BEE")
         event.preventDefault();
         const data = {...this.state};
         delete data.employeeNumber
-        delete data.technicians
+        delete data.technician
 
         const technicianURL = "http://localhost:8080/api/technician/";
         const fetchConfig = {
@@ -55,11 +57,11 @@ class TechnicianForm extends React.Component {
                   <h1>Create a New Technician</h1>
                   <form onSubmit={this.handleSubmit} id="create-technician-form">
                     <div className="form-floating mb-3">
-                      <input onChange={this.handleChangeName} value={this.state.name} placeholder="Name" required type="text" id="name" className="form-control" />
+                      <input onChange={this.handleChangeName} value={this.state.name} placeholder="name" required type="text" id="name" className="form-control" />
                       <label htmlFor="name">Name</label>
                     </div>
                     <div className="form-floating mb-3">
-                      <input onChange={this.handleChangeEmployeeNumber} value={this.state.employeeNumber} placeholder="Employee Number" required type="text" id="employeeNumber" className="form-control" />
+                      <input onChange={this.handleChangeEmployeeNumber} value={this.state.employeeNumber} placeholder="employeeNumber" required type="text" id="employeeNumber" className="form-control" />
                       <label htmlFor="employeeNumber">Employee number</label>
                     </div>
                     <button className="btn btn-primary">Create</button>
@@ -70,5 +72,5 @@ class TechnicianForm extends React.Component {
         );
     }
 }
-
+console.log("Soda")
 export default TechnicianForm;

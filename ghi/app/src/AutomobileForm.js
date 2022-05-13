@@ -7,6 +7,8 @@ class AutomobileForm extends React.Component {
       year: "",
       color: "",
       vin: "",
+      manufacturer: "",
+      manufacturers: [],
       model: "",
       models: [],
     };
@@ -15,6 +17,7 @@ class AutomobileForm extends React.Component {
     this.handleChangeYear = this.handleChangeYear.bind(this);
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.handleChangeVin = this.handleChangeVin.bind(this);
+    this.handleChangeManufacturer = this.handleChangeManufacturer.bind(this);
     this.handleChangeModel = this.handleChangeModel.bind(this);
   }
 
@@ -31,7 +34,7 @@ class AutomobileForm extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     const data = {...this.state};
-    delete data.models;
+    delete data.model;
 
     const modelUrl = "http://localhost:8100/api/models/";
     const fetchConfig = {
@@ -49,8 +52,11 @@ class AutomobileForm extends React.Component {
         year: "",
         color: "",
         vin: "",
+        manufacturer: "",
         model: "",
       });
+    } else {
+      console.log('bad response')
     }
   }
 
@@ -74,6 +80,11 @@ class AutomobileForm extends React.Component {
     this.setState({ model: value });
   }
 
+  handleChangeManufacturer(event) {
+    const value = event.target.value;
+    this.setState({ manufacturer: value });
+  }
+
   render() {
     return (
       <div className="row">
@@ -93,12 +104,22 @@ class AutomobileForm extends React.Component {
                 <input onChange={this.handleChangeColor} value={this.state.color} placeholder="Color" required type="text" name="color" id="color" className="form-control" />
                 <label htmlFor="color">Color</label>
               </div>
-              {/* <div className="mb-3">
-                <select onChange={this.handleChangeModel} value={this.state.model} placeholder="model" id="model" className="form-select">
-                  <option value="">Choose a model</option>
-                  {this.state.models.map(model => {
+              <div className="mb-3">
+                <select onChange={this.handleChangeManufacturer} value={this.state.manufacturer} placeholder="Manufacturer" id="manufacturer" className="form-select">
+                  <option value="">Choose a manufacturer</option>
+                  {this.state.manufacturers.map(manufacturer => {
                     return (
-                      <option key={model.href} value={model.id}>{model.name}</option>
+                      <option key={manufacturer.href} value={manufacturer.id}>{manufacturer.name}</option>
+                    )
+                  })}
+                </select>
+                </div>
+              {/* <div className="mb-3">
+                <select onChange={this.handleChangeModel} value={this.state.model} placeholder="Model" id="model" className="form-select">
+                  <option value="">Choose a model</option>
+                  {this.state.models.map(models => {
+                    return (
+                      <option key={models.href} value={models.id}>{models.name}</option>
                     )
                   })}
                 </select>

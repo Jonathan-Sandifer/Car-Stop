@@ -1,5 +1,5 @@
 import React from 'react';
-
+console.log("frog")
 class ManufacturerForm extends React.Component {
   constructor(props) {
     super(props);
@@ -40,6 +40,7 @@ class ManufacturerForm extends React.Component {
     const value = event.target.value;
     this.setState({ name: value });
   }
+  
 
   render() {
     return (
@@ -54,11 +55,12 @@ class ManufacturerForm extends React.Component {
               </div>
               <button className="btn btn-primary">Create</button>
             </form>
+            
           </div>
         </div>
       </div>
     );
   }
 }
-
+console.log("BEE")
 export default ManufacturerForm;
