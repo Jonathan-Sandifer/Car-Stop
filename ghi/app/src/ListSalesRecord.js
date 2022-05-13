@@ -15,9 +15,8 @@ function SalesRecordList(props) {
         </thead>
         <tbody>
           {props.salesRecord.sales_records.map(salesRecord => {
-            return (
-              // key={SalesRecord.href} may need to set a key value for the row
-              <tr>  
+            return ( 
+              <tr key={salesRecord.id}>  
                    <td>{salesRecord.sales_person.name}</td>
                    <td>{salesRecord.sales_person.employee_id_number}</td>
                    <td>{salesRecord.customer.name}</td>
