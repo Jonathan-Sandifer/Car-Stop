@@ -1,20 +1,19 @@
-function SalesRecordList(props) {
+function SalesPersonRecordList(props) {
   // console.log('props 2222:', props.salesRecord);
   return (
     <>
-      <h1>Sales Records</h1>
+      <h1>Sales person history</h1>
       <table className="table table-striped">
         <thead>
           <tr>
             <th>Sales Person</th>
-            <th>Employee Number</th>
             <th>Customer</th>
             <th>Vin</th>
-            <th>Price</th>
+            <th>Sale Price</th>
           </tr>
         </thead>
         <tbody>
-          {props.salesRecord.sales_records.map(salesRecord => {
+          {/* {props.salesRecord.sales_records.map(salesRecord => {
             return (
               <tr key={salesRecord.id}>
                 <td>{salesRecord.sales_person.name}</td>
@@ -24,11 +23,11 @@ function SalesRecordList(props) {
                 <td>{salesRecord.price}</td>
               </tr>
             );
-          })}
+          })} */}
         </tbody>
       </table>
     </>
   );
 }
 
-export default SalesRecordList
+export default SalesPersonRecordList

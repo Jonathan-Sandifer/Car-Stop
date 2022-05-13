@@ -13,6 +13,24 @@ from .models import SalesPerson, Customer, SalesRecord, VinVO
 # Create your views here.
 
 
+@require_http_methods(["GET"])
+def api_show_sale_history(request, sales_person=None):
+    if request.method == "GET":
+        try:
+            record = SalesRecord.objects.filter(sales_person=sales_person)
+            print("over here:", record)
+            return JsonResponse(
+                record,
+                encoder=SalesRecordEncoder,
+                safe=False
+            )
+        except SalesRecord.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid Record"},
+                status=400
+            )
+
+
 @require_http_methods(["GET", "POST"])
 def api_sales_record(request):
     if request.method == "GET":
@@ -23,7 +41,7 @@ def api_sales_record(request):
         )
     else:
         content = json.loads(request.body)
-        # print("over here:", content)
+
         try:
             vin = VinVO.objects.get(import_href=content["Vin_number"])
             content["Vin_number"] = vin
