@@ -5,7 +5,7 @@ class ServiceForm extends React.Component {
         super(props);
         this.state={
             vin: '',
-            owner: '',
+            customer: '',
             date_time: '',
             technician:'',
             technicians: [],
@@ -13,18 +13,17 @@ class ServiceForm extends React.Component {
         };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeVin = this.handleChangeVin.bind(this);
-    this.handleChangeOwner = this.handleChangeOwner.bind(this);
+    this.handleChangeCustomer = this.handleChangeCustomer.bind(this);
     this.handleChangeDateTime = this.handleChangeDateTime.bind(this);
     this.handleChangeTechnician  = this.handleChangeTechnician.bind(this);
     this.handleChangeReason  = this.handleChangeReason.bind(this);
     }
     async componentDidMount() {
-        const url = 'http://localhost:8080/api/technician/';
+        const technicianurl = 'http://localhost:8080/api/technician/';
+        const technicianresponse = await fetch(technicianurl);
     
-        const response = await fetch(url);
-    
-        if (response.ok) {
-          const data = await response.json();
+        if (technicianresponse.ok) {
+          const data = await technicianresponse.json();
           this.setState({ technicians: data.technicians });
         }
     }
@@ -34,9 +33,9 @@ class ServiceForm extends React.Component {
         delete data.technicians;
         console.log(data)
 
-        const serviceUrl = "http://localhost:8080/api/appointments/";
+        const serviceUrl = "http://localhost:8080/api/services/";
         const fetchConfig = {
-            method: "POST",
+            method: "post",
             body: JSON.stringify(data),
             headers: {
               'Content-Type': 'application/json',
@@ -47,8 +46,8 @@ class ServiceForm extends React.Component {
             const newService = await response.json();
             console.log(newService);
             this.setState({
-                vin_num: '',
-                owner: '',
+                vin: '',
+                customer: '',
                 date_time: '',
                 technician:'',
                 reason:'',
@@ -59,9 +58,9 @@ class ServiceForm extends React.Component {
         const value = event.target.value;
         this.setState({ vin: value });
     }
-    handleChangeOwner(event) {
+    handleChangeCustomer(event) {
         const value = event.target.value;
-        this.setState({ owner: value });
+        this.setState({ customer: value });
     }
     handleChangeDateTime(event) {
         const value = event.target.value;
@@ -83,18 +82,18 @@ class ServiceForm extends React.Component {
             <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
                 <h1>Add a new Service</h1>
-                <form onSubmit={this.handleSubmit} id="create-appointment-form">
+                <form onSubmit={this.handleSubmit} id="create-service-form">
                     <div className="form-floating mb-3">
                         <input onChange={this.handleChangeVin} value={this.state.vin} placeholder="vin" required type="text" name="vin" id="vin" className="form-control" />
-                        <label htmlFor="vin_num">Vin</label>
+                        <label htmlFor="vin">Vin</label>
                     </div>
                     <div className="form-floating mb-3">
-                        <input onChange={this.handleChangeOwner} value={this.state.owner} placeholder="owner" required type="text" name="owner" id="owner" className="form-control" />
+                        <input onChange={this.handleChangeCustomer} value={this.state.customer} placeholder="customer" required type="text" name="customer" id="customer" className="form-control" />
                         <label htmlFor="owner">Customer</label>
                     </div>
                     <div className="form-floating mb-3">
-                        <input onChange={this.handleChangeDateTime} value={this.state.date_time} placeholder="date" required type="date" name="date" id="date" className="form-control" />
-                        <label htmlFor="date">Service Date and Time</label>
+                        <input onChange={this.handleChangeDateTime} value={this.state.date_time} placeholder="date_time" required type="date" name="date_time" id="date_time" className="form-control" />
+                        <label htmlFor="date_time">Service Date and Time</label>
                     </div>
                     <div className="mb-3">
                         <select onChange={this.handleChangeTechnician} value={this.state.technician} required name="technician" id="technician" className="form-select">
@@ -110,7 +109,7 @@ class ServiceForm extends React.Component {
                         <input onChange={this.handleChangeReason} value={this.state.reason} placeholder="reason" required type="text" name="reason" id="reason" className="form-control" />
                         <label htmlFor="reason">Reason</label>
                     </div>
-                    <button className="btn btn-primary">Add</button>
+                    <button type='submit' className="btn btn-primary">Add</button>
                 </form>
             </div>
             </div>
