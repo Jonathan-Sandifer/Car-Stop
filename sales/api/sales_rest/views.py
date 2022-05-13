@@ -18,7 +18,7 @@ def api_show_sale_history(request, sales_person=None):
     if request.method == "GET":
         try:
             record = SalesRecord.objects.filter(sales_person=sales_person)
-            print("over here:", record)
+            # print("over here:", record)
             return JsonResponse(
                 record,
                 encoder=SalesRecordEncoder,
