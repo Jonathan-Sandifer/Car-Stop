@@ -13,6 +13,7 @@ import TechnicianList from './TechnicianList';
 import TechnicianForm from './TechnicianForm';
 import ServiceList from './ServiceList';
 import ServiceForm from './ServiceForm';
+import ServiceHistoryList from './ServiceHistoryList';
 import SalesRecordList from './ListSalesRecord';
 import SalesRecordForm from './CreateSalesRecord';
 
@@ -42,6 +43,9 @@ function App(props) {
           <Route path="/services">
             <Route index element={<ServiceList services={props.services} />} />
             <Route path="new" element={<ServiceForm />} />
+          </Route>
+          <Route path="/servicehistory">
+            <Route index element={<ServiceHistoryList />} />
           </Route>
           <Route path="/salesperson">
             <Route index element={<SalesPersonForm />} />
