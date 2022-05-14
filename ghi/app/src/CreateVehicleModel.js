@@ -22,7 +22,6 @@ class VehicleModelForm extends React.Component {
 
     if (response.ok) {
       const data = await response.json();
-      // console.log('hello:', data);
       this.setState({ manufacturers: data.manufacturers });
     }
   }
@@ -31,9 +30,6 @@ class VehicleModelForm extends React.Component {
     event.preventDefault();
     const data = { ...this.state };
     delete data.manufacturers;
-    // delete data.picture_url;
-    // delete data.name;
-    console.log(data);
     const modelsUrl = "http://localhost:8100/api/models/";
     const fetchConfig = {
       method: "post",
@@ -45,7 +41,6 @@ class VehicleModelForm extends React.Component {
     const response = await fetch(modelsUrl, fetchConfig);
     if (response.ok) {
       const newVehicleModel = await response.json();
-      console.log(newVehicleModel);
       this.setState({
         name: "",
         picture_url: "",

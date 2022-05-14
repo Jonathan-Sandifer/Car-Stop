@@ -19,7 +19,6 @@ class SalesPersonRecordList extends React.Component {
 
     if (salesPersonResponse.ok) {
       const salesPersonData = await salesPersonResponse.json()
-      console.log('hello:', salesPersonData);
       this.setState({ sales_person: salesPersonData })
     }
   }
@@ -29,7 +28,6 @@ class SalesPersonRecordList extends React.Component {
     const salesPeopleResponse = await fetch(salesPeopleUrl)
     if (salesPeopleResponse.ok) {
       const salesPeopleData = await salesPeopleResponse.json()
-      // console.log('howdy:', salesPeopleData);
       this.setState({ sales_people: salesPeopleData.sales_people })
     }
 

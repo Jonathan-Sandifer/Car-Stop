@@ -1,5 +1,4 @@
 function SalesRecordList(props) {
-  // console.log('props 2222:', props.salesRecord);
   return (
     <>
       <h1>Sales Records</h1>

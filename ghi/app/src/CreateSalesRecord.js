@@ -36,12 +36,10 @@ class SalesRecordForm extends React.Component {
 
     if (salesPersonResponse.ok) {
       const salesPersonData = await salesPersonResponse.json();
-      // console.log('hello:', salesPersonData);
       this.setState({ sales_people: salesPersonData.sales_people });
     }
     if (autoResponse.ok) {
       const autoData = await autoResponse.json();
-      console.log('goodbye:', autoData);
       this.setState({ autos: autoData.autos });
     }
   }
@@ -49,10 +47,6 @@ class SalesRecordForm extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     const data = { ...this.state };
-    // delete data.customers;
-    // delete data.sales_people;
-    // delete data.autos;
-    console.log(data);
     const newSalesRecord = {
       price: data.price,
       customer: data.customer,
@@ -70,7 +64,6 @@ class SalesRecordForm extends React.Component {
     const response = await fetch(salesRecordUrl, fetchConfig);
     if (response.ok) {
       const newSalesRecord = await response.json();
-      console.log(newSalesRecord);
       this.setState({
         auto: "",
         sales_person: "",

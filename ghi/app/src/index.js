@@ -22,19 +22,16 @@ async function loadInventory() {
   }
   if (manufacturerResponse.ok) {
     manufacturerData = await manufacturerResponse.json();
-    // console.log('manufacturer data: ', manufacturerData)
   } else {
     console.error(manufacturerResponse);
   }
   if (vehicleModelResponse.ok) {
     vehicleModelData = await vehicleModelResponse.json();
-    // console.log('vehicle model data:', vehicleModelData)
   } else {
     console.error(vehicleModelResponse);
   }
   if (salesRecordResponse.ok) {
     salesRecordData = await salesRecordResponse.json();
-    // console.log(salesRecordData);
   } else {
     console.error(salesRecordResponse);
   }
@@ -52,12 +49,12 @@ async function loadInventory() {
   }
   root.render(
     <React.StrictMode>
-      <App automobiles={automobileData} 
-      manufacturers={manufacturerData} 
-      vehicleModel={vehicleModelData} 
-      salesRecord={salesRecordData} 
-      services={serviceData} 
-      technicians={technicianData}/>
+      <App automobiles={automobileData}
+        manufacturers={manufacturerData}
+        vehicleModel={vehicleModelData}
+        salesRecord={salesRecordData}
+        services={serviceData}
+        technicians={technicianData} />
     </React.StrictMode>
   );
 }
