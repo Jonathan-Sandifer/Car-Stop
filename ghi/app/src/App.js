@@ -16,6 +16,7 @@ import ServiceForm from './ServiceForm';
 import ServiceHistoryList from './ServiceHistoryList';
 import SalesRecordList from './ListSalesRecord';
 import SalesRecordForm from './CreateSalesRecord';
+import SalesPersonRecordList from './ListSpecificSalesRecords';
 
 function App(props) {
   return (
@@ -56,6 +57,9 @@ function App(props) {
           <Route path="/sales_record">
             <Route index element={<SalesRecordList salesRecord={props.salesRecord} />} />
             <Route path="new" element={<SalesRecordForm />} />
+          </Route>
+          <Route path="/sale_history/">
+            <Route index element={<SalesPersonRecordList salesRecord={props.salesRecord} />} />
           </Route>
         </Routes>
       </div>

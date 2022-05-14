@@ -1,5 +1,4 @@
 function VehicleModelsList(props) {
-  console.log('props 7777:', props);
   return (
     <>
       <h1>Vehicle models</h1>
