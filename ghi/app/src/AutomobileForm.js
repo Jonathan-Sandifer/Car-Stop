@@ -104,6 +104,7 @@ class AutomobileForm extends React.Component {
                 <input onChange={this.handleChangeColor} value={this.state.color} placeholder="Color" required type="text" name="color" id="color" className="form-control" />
                 <label htmlFor="color">Color</label>
               </div>
+              {/* This was supposed to be a dropdown of a list of manufacturers to choose from */}
               <div className="mb-3">
                 <select onChange={this.handleChangeManufacturer} value={this.state.manufacturer} placeholder="Manufacturer" id="manufacturer" className="form-select">
                   <option value="">Choose a manufacturer</option>
@@ -114,6 +115,7 @@ class AutomobileForm extends React.Component {
                   })}
                 </select>
                 </div>
+                {/* This was supposed to make a dropdown of the models to choose from */}
                 {/* <div className="mb-3">
                 <select onChange={this.handleChangeModel} value={this.state.model} placeholder="Model" id="model" className="form-select">
                   <option value="">Choose a model</option>

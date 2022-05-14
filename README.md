@@ -8,9 +8,12 @@ Team:
 ## Design
 
 ## Service microservice
+The service microservice requires models for the services and the technician with an added model for the Vin number, 
+that I got from the Automobile model that I called AutomobileVO. 
+I then made the Five js files I needed for the Frontend.
+While I was writing all the code I got to the point that 
+I needed the Vin data from the Inventory microservice so I implemented that so I could use it.
 
-Explain your models and integration with the inventory
-microservice, here.
 
 ## Sales microservice
 
